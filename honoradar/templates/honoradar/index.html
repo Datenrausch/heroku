@@ -217,7 +217,7 @@
     </div>
 
 <!-- Genre-Select -->
-    <input name="Genre" id="data_genre" class="genre-select hide" list="genre" placeholder="Welches Genre?" type="text"/>
+    <input name="ProductType" id="data_genre" class="genre-select hide" list="genre" placeholder="Welches Genre?" type="text"/>
     <datalist id="genre">
         <option value="Bericht">
         <option value="Doku">
@@ -278,13 +278,13 @@
 
 <!-- Luckiness-Select -->
     <div class="luckiness-select hide" id="pre-data_zusammenarbeit">
-        <input name="Luckiness"id="data_zusammenarbeit" class="luckiness-bar" type="range" min="1" max="100" value="0"/>
+        <input name="Happiness"id="data_zusammenarbeit" class="luckiness-bar" type="range" min="1" max="100" value="0"/>
     </div>
 	<div class="break"></div>
 
 <!-- Comment-Select -->
     <div class="hide" id="pre-data_kommentar">
-        <textarea id="data_kommentar" class="comment-select" name="Comment" placeholder="Dein Kommentar ..." maxlength="250"></textarea>
+        <textarea id="data_kommentar" class="comment-select" name="Message" placeholder="Dein Kommentar ..." maxlength="250"></textarea>
     </div>
     <span class="hide" id="disclaimer"><p class="disclaimer"><a href="#">!</a>Achte darauf, dass du deine Identität im Kommentar nicht verrätst!</p></span>
 
@@ -297,9 +297,7 @@
 
     {% if messages %}
     {% for message in messages %}
-    <p>
-      Was fehlt:
-    </p>  <span class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</span>
+      <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
     {% endfor %}
     {% endif %}
 
