@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '_credentials.SECRET_KEY')
 #DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['dry-depths-69493.herokuapp.com','dry-depths-69493.herokuapp.com/honoradar','127.0.0.1',"localhost"]
+ALLOWED_HOSTS = ['dry-depths-69493.herokuapp.com','127.0.0.1',"localhost"]
 
 
 # Application definition
