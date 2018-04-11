@@ -22,107 +22,313 @@ $(document).ready(function() {
     function handleFormSuccessGet(data, textStatus, jqXHR) {
         console.log(data)
         const resultsdiv = document.getElementById('result')
+        const $result = $(".result")
+        const $resultfrei = $("#result-text-frei")
+        const $resultpauschal = $("#result-text-pauschal")
+        const $resultfest = $("#result-text-fest")
 
+        var element=document.getElementById("result-text-frei")
+        element.innerHTML=""
+        var element=document.getElementById("result-text-pauschal")
+        element.innerHTML=""
+        var element=document.getElementById("result-text-fest")
+        element.innerHTML=""
+
+
+        var element=document.getElementById("festgrafik1")
+        element.innerHTML=""
+        var element=document.getElementById("pauschalgrafik1")
+        element.innerHTML=""
+        var element=document.getElementById("freigrafik1")
+        element.innerHTML=""
+        var element=document.getElementById("freigrafikvideo")
+        element.innerHTML=""
+        var element=document.getElementById("freigrafikaudio")
+        element.innerHTML=""
+        var element=document.getElementById("freigrafikprint")
+        element.innerHTML=""
+        const mediumname = document.getElementById("result-mediumname")
+        console.log(mediumname)
         const size = Object.keys(data).length;
-        console.log(size)
-        resultsdiv.innerHTML = ""
+        mediumname.innerHTML = ""
 
-        const $result = $("#result")
+        mediumname.innerHTML = (String(data["mediumname"]))
+
+
+
         resultsdiv.classList.add("show");
         resultsdiv.classList.remove("hide");
-        $result.append('<div class="banner-left-3">Gehalts- und Lohnreports</div><div class="banner-left-shadow"></div>')
 
-        if (data["missingdata"] != undefined) {
-            $result.append('<div class="result-text">' + String(data["missingdata"]) + '</div>');
 
+
+        if (data["nodata"] != undefined) {
+            $result.append('<div class="result-text" id="NoDataAtAllMessage">' + 'Leider haben wir für dieses Medium noch keine Daten parat.' + '</div>');
+            var element=document.getElementsByClassName("result-grid")[0];
+            console.log(element)
+
+            element.classList.add("hide");
+            element.classList.remove("show");
         } else {
-            $result.append('<div class="result-text">' + String(data["mediumname"]) + '</div>');
-            if (data["SalaryPerHour"]) {
-                if (data["SalaryPerHour"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der Durchschnittliche Stundenlohn liegt bei: ' + String(data["SalaryPerHour"]["avg"]) + " Euro  plusminus " + String(data["SalaryPerHour"]["std"]) + '</div>');
-                };
-            }
-            if (data["SalaryPerMonth"]) {
-                if (data["SalaryPerMonth"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der Monatslohn bei einer 40 Stunden Woche würde bei: ' + String(data["SalaryPerMonth"]["avg"]) + " Euro  plusminus " + String(data["SalaryPerMonth"]["std"]) + " liegen." +
-                        '</div>');
-                };
-            }
-            if (data["HoursPerWeekEmp"]) {
-                if (data["HoursPerWeekEmp"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Im Schnitt arbeiten feste Mitarbeiter hier: ' + String(data["HoursPerWeekEmp"]["avg"]) + " Stunden pro Woche  plusminus " + String(data["HoursPerWeekEmp"]["std"]) +
-                        "Stunden" + '</div>');
-                };
-            }
-            if (data["DaysPerMonthMix"]) {
-                if (data["DaysPerMonthMix"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Im Schnitt arbeiten Pauschalisten hier: ' + String(data["DaysPerMonthMix"]["avg"]) + " Tage pro Monat  plusminus " + String(data["DaysPerMonthMix"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["HoursPerDayMix"]) {
-                if (data["HoursPerDayMix"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Wobei sie pro Tag rund: ' + String(data["HoursPerDayMix"]["avg"]) + " Stunden arbeiten  plusminus " + String(data["HoursPerDayMix"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["HoursPerMonth"]) {
-                if (data["HoursPerMonth"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Das sind: ' + String(data["HoursPerMonth"]["avg"]) + " Stunden pro Monat  plusminus " + String(data["HoursPerMonth"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["FeeFree"]) {
-                if (data["FeeFree"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Das durchschnittliche Honorar beträgt: ' + String(data["FeeFree"]["avg"]) + " Euro  plusminus " + String(data["FeeFree"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["HoursSpentFree"]) {
-                if (data["HoursSpentFree"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der Zeitaufwand dafür beträgt: ' + String(data["HoursSpentFree"]["avg"]) + " Stunden  plusminus " + String(data["HoursSpentFree"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["MinPerVideoFree"]) {
-                if (data["MinPerVideoFree"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der durchschnittliche Videobeitrag ist: ' + String(data["MinPerVideoFree"]["avg"]) + " Minuten lang  plusminus " + String(data["MinPerVideoFree"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["VideoFeePerMin"]) {
-                if (data["VideoFeePerMin"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Das entspricht einem Honorar von ' + String(data["VideoFeePerMin"]["avg"]) + " Euro pro Sendeminute  plusminus " + String(data["VideoFeePerMin"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["MinPerAudioFree"]) {
-                if (data["MinPerAudioFree"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der durchschnittliche Audiobeitrag ist: ' + String(data["MinPerAudioFree"]["avg"]) + " Minuten lang  plusminus " + String(data["MinPerAudioFree"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["AudioFeePerMin"]) {
-                if (data["AudioFeePerMin"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Das entspricht einem Honorar von ' + String(data["AudioFeePerMin"]["avg"]) + " Euro pro Sendeminute  plusminus " + String(data["AudioFeePerMin"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["CharPerArticleFree"]) {
-                if (data["CharPerArticleFree"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Der durchschnittliche Artikel ist: ' + String(data["CharPerArticleFree"]["avg"]) + " Zeichen lang  plusminus " + String(data["CharPerArticleFree"]["std"]) + "." + '</div>');
-                };
-            }
-            if (data["ArticleFeePerChar"]) {
-                if (data["ArticleFeePerChar"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Das entspricht einem Honorar von ' + String(data["ArticleFeePerChar"]["avg"]) + " Euro pro Zeichen plusminus " + String(data["ArticleFeePerChar"]["std"]) + "." + '</div>');
-                };
-            }
 
-            if (data["Happiness"]) {
-                if (data["Happiness"]["status"] == "Success") {
-                    $result.append('<div class="result-text">Und die Zufriedenheit liegt bei ' + String(data["Happiness"]["avg"]) + " plusminus " + String(data["Happiness"]["std"]) + '</div>');
-                };
+          var element=document.getElementById("NoDataAtAllMessage");
+          if (element!=undefined){element.innerHTML=""
+          console.log(element)}
+
+          var element=document.getElementsByClassName("result-grid")[0];
+          console.log(element)
+          element.classList.add("show");
+          element.classList.remove("hide");
+
+          if (data["MediumFestHappiness"]) {
+              if (data["MediumFestHappiness"]["status"] == "Success") {
+                  var element=document.getElementById("result_athmosphaere-fest")
+                  element.setAttribute("value",Math.round((data["MediumFestHappiness"]["avg"])))
+                  element.setAttribute("class","range result_happiness-bar result_happiness-"+String(Math.round((data["MediumFestHappiness"]["avg"]))))
+              };
+          };
+          if (data["MediumPauschalHappiness"]) {
+              if (data["MediumPauschalHappiness"]["status"] == "Success") {
+                  var element=document.getElementById("result_athmosphaere-pauschal")
+                  element.setAttribute("value",Math.round((data["MediumPauschalHappiness"]["avg"])))
+                  element.setAttribute("class","range result_happiness-bar result_happiness-"+String(Math.round((data["MediumPauschalHappiness"]["avg"]))))
+
+              };
+          };
+
+          if (data["MediumFreiHappiness"]) {
+              if (data["MediumFreiHappiness"]["status"] == "Success") {
+                  var element=document.getElementById("result_athmosphaere-frei")
+                  element.setAttribute("value",Math.round((data["MediumFreiHappiness"]["avg"])))
+                  element.setAttribute("class","range result_happiness-bar result_happiness-"+String(Math.round((data["MediumFreiHappiness"]["avg"]))))
+
+              };
+          };
+
+
+
+            let elementid = "festgrafik1"
+
+            if ((data["MediumFestSalaryPerHour"]) && (data["AllFestSalaryPerHour"])) {
+                if ((data["MediumFestSalaryPerHour"]["status"] == "Success") && (data["AllFestSalaryPerHour"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumFestSalaryPerHour",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumFestSalaryPerHour"]["avg"]) - parseFloat(data["MediumFestSalaryPerHour"]["std"]),
+                        max: parseFloat(data["MediumFestSalaryPerHour"]["avg"]) + parseFloat(data["MediumFestSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["MediumFestSalaryPerHour"]["avg"])
+                    }, {
+                        id: "AllFestSalaryPerHour",
+                        category: "Ø \n alle \n Festangestellte",
+                        min: parseFloat(data["AllFestSalaryPerHour"]["avg"]) - parseFloat(data["AllFestSalaryPerHour"]["std"]),
+                        max: parseFloat(data["AllFestSalaryPerHour"]["avg"]) + parseFloat(data["AllFestSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["AllFestSalaryPerHour"]["avg"])
+                    }, {
+                        id: "FreischreiberFestSalaryPerHour",
+                        category: "Freischreiber \n Empfehlung",
+                        min: 25,
+                        max: 25,
+                        mean: 25,
+                        charttitle: "Stundenlohn für Festangestellt in Euro"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                }else{
+                  $graphicdiv = $("#"+elementid)
+                  $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                }
+            }else{
+              $graphicdiv = $("#"+elementid)
+              $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+
             };
+             elementid = "pauschalgrafik1"
+
+            if ((data["MediumPauschalSalaryPerHour"]) && (data["AllPauschalSalaryPerHour"])) {
+                if ((data["MediumPauschalSalaryPerHour"]["status"] == "Success") && (data["AllPauschalSalaryPerHour"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumPauschalSalaryPerHour",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumPauschalSalaryPerHour"]["avg"]) - parseFloat(data["MediumPauschalSalaryPerHour"]["std"]),
+                        max: parseFloat(data["MediumPauschalSalaryPerHour"]["avg"]) + parseFloat(data["MediumPauschalSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["MediumPauschalSalaryPerHour"]["avg"])
+                    }, {
+                        id: "AllPauschalSalaryPerHour",
+                        category: "Ø \n alle \n Pauschalisten",
+                        min: parseFloat(data["AllPauschalSalaryPerHour"]["avg"]) - parseFloat(data["AllPauschalSalaryPerHour"]["std"]),
+                        max: parseFloat(data["AllPauschalSalaryPerHour"]["avg"]) + parseFloat(data["AllPauschalSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["AllPauschalSalaryPerHour"]["avg"])
+                    }, {
+                        id: "FreischreiberPauschalSalaryPerHour",
+                        category: "Freischreiber Empfehlung",
+                        min: 25,
+                        max: 25,
+                        mean: 25,
+                        charttitle: "Stundenlohn für Pauschalisten in Euro"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                  }else{
+                    $graphicdiv = $("#"+elementid)
+                    $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                  }
+              }else{
+                $graphicdiv = $("#"+elementid)
+                $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                };
+               elementid = "freigrafik1"
+
+            if ((data["MediumFreiSalaryPerHour"]) && (data["AllFreiSalaryPerHour"])) {
+                if ((data["MediumFreiSalaryPerHour"]["status"] == "Success") && (data["AllFreiSalaryPerHour"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumFreiSalaryPerHour",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumFreiSalaryPerHour"]["avg"]) - parseFloat(data["MediumFreiSalaryPerHour"]["std"]),
+                        max: parseFloat(data["MediumFreiSalaryPerHour"]["avg"]) + parseFloat(data["MediumFreiSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["MediumFreiSalaryPerHour"]["avg"])
+                    }, {
+                        id: "AllFreiSalaryPerHour",
+                        category: "Ø alle Freiberufler",
+                        min: parseFloat(data["AllFreiSalaryPerHour"]["avg"]) - parseFloat(data["AllFreiSalaryPerHour"]["std"]),
+                        max: parseFloat(data["AllFreiSalaryPerHour"]["avg"]) + parseFloat(data["AllFreiSalaryPerHour"]["std"]),
+                        mean: parseFloat(data["AllFreiSalaryPerHour"]["avg"])
+                    }, {
+                        id: "FreischreiberFreiSalaryPerHour",
+                        category: "Freischreiber Empfehlung",
+                        min: 25,
+                        max: 25,
+                        mean: 25,
+                        charttitle: "Stundenlohn für Freie in Euro"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                }else{
+                  $graphicdiv = $("#"+elementid)
+                  $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                }
+              }else{
+                $graphicdiv = $("#"+elementid)
+                $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+              };
+               elementid = "freigrafikvideo"
+
+            if ((data["MediumFreiVideoFeePerMin"]) && (data["AllFreiVideoFeePerMin"])) {
+                if ((data["MediumFreiVideoFeePerMin"]["status"] == "Success") && (data["AllFreiVideoFeePerMin"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumFreiVideoFeePerMin",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumFreiVideoFeePerMin"]["avg"]) - parseFloat(data["MediumFreiVideoFeePerMin"]["std"]),
+                        max: parseFloat(data["MediumFreiVideoFeePerMin"]["avg"]) + parseFloat(data["MediumFreiVideoFeePerMin"]["std"]),
+                        mean: parseFloat(data["MediumFreiVideoFeePerMin"]["avg"])
+                    }, {
+                        id: "AllFreiVideoFeePerMin",
+                        category: "Ø \n alle \n Freiberufler",
+                        min: parseFloat(data["AllFreiVideoFeePerMin"]["avg"]) - parseFloat(data["AllFreiVideoFeePerMin"]["std"]),
+                        max: parseFloat(data["AllFreiVideoFeePerMin"]["avg"]) + parseFloat(data["AllFreiVideoFeePerMin"]["std"]),
+                        mean: parseFloat(data["AllFreiVideoFeePerMin"]["avg"])
+                    }, {
+                        id: "FreischreiberFreiSalaryPerHour",
+                        category: "Freischreiber Empfehlung",
+                        min: 25,
+                        max: 25,
+                        mean: 25,
+                        charttitle: "Honorar pro Videominute (€)"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                }else{
+                  $graphicdiv = $("#"+elementid)
+                  $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                }
+              }else{
+                $graphicdiv = $("#"+elementid)
+                $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+              };
+               elementid = "freigrafikaudio"
+
+            if ((data["MediumFreiAudioFeePerMin"]) && (data["AllFreiAudioFeePerMin"])) {
+                if ((data["MediumFreiAudioFeePerMin"]["status"] == "Success") && (data["AllFreiAudioFeePerMin"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumFreiAudioFeePerMin",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumFreiAudioFeePerMin"]["avg"]) - parseFloat(data["MediumFreiAudioFeePerMin"]["std"]),
+                        max: parseFloat(data["MediumFreiAudioFeePerMin"]["avg"]) + parseFloat(data["MediumFreiAudioFeePerMin"]["std"]),
+                        mean: parseFloat(data["MediumFreiAudioFeePerMin"]["avg"])
+                    }, {
+                        id: "AllFreiAudioFeePerMin",
+                        category: "Ø \n alle \n Freiberufler",
+                        min: parseFloat(data["AllFreiAudioFeePerMin"]["avg"]) - parseFloat(data["AllFreiAudioFeePerMin"]["std"]),
+                        max: parseFloat(data["AllFreiAudioFeePerMin"]["avg"]) + parseFloat(data["AllFreiAudioFeePerMin"]["std"]),
+                        mean: parseFloat(data["AllFreiAudioFeePerMin"]["avg"])
+                    }, {
+                        id: "FreischreiberAudioFeePerMin",
+                        category: "Freischreiber Empfehlung",
+                        min: 25,
+                        max: 25,
+                        mean: 25,
+                        charttitle: "Honorar pro Audiominute (€)"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                }else{
+                  $graphicdiv = $("#"+elementid)
+                  $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+                }
+              }else{
+                $graphicdiv = $("#"+elementid)
+                $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+              };
+               elementid = "freigrafikprint"
+
+            if ((data["MediumFreiArticleFeePerChar"]) && (data["AllFreiArticleFeePerChar"])) {
+                if ((data["MediumFreiArticleFeePerChar"]["status"] == "Success") && (data["AllFreiArticleFeePerChar"]["status"] == "Success")) {
+                    let d3festjson = [{
+                        id: "MediumFreiArticleFeePerChar",
+                        category: String(data["mediumname"]),
+                        min: parseFloat(data["MediumFreiArticleFeePerChar"]["avg"]*100) - parseFloat(data["MediumFreiArticleFeePerChar"]["std"]*100),
+                        max: parseFloat(data["MediumFreiArticleFeePerChar"]["avg"]*100) + parseFloat(data["MediumFreiArticleFeePerChar"]["std"]*100),
+                        mean: parseFloat(data["MediumFreiArticleFeePerChar"]["avg"]*100),
+                    }, {
+                        id: "AllFreiArticleFeePerChar",
+                        category: "Ø \n alle \n Freiberufler",
+                        min: parseFloat(data["AllFreiArticleFeePerChar"]["avg"]*100) - parseFloat(data["AllFreiArticleFeePerChar"]["std"]*100),
+                        max: parseFloat(data["AllFreiArticleFeePerChar"]["avg"]*100) + parseFloat(data["AllFreiArticleFeePerChar"]["std"]*100),
+                        mean: parseFloat(data["AllFreiArticleFeePerChar"]["avg"]*100)
+                    }, {
+                        id: "FreischreiberArticleFeePerChar",
+                        category: "Freischreiber Empfehlung",
+                        min: 10,
+                        max: 10,
+                        mean: 100,
+                        charttitle: "Honorar pro hundert Zeichen (€)"
+
+                    }];
+
+                    gradientboxplot(d3festjson, elementid)
+                }else{
+                  $graphicdiv = $("#"+elementid)
+                  $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+
+                }
+              }else{
+                $graphicdiv = $("#"+elementid)
+                $graphicdiv.append('<div class="result-text">Leider haben wir keine Daten für diese Kategorie.</div>');
+              };
         }
 
-
+        var element = document.getElementById("freigrafikprint");
+          element.classList.add("show");
+          element.classList.remove("hide");
 
 
         console.log(textStatus)
         console.log(jqXHR)
         $myForm[0].reset(); // reset form data
+        smoothfunction()
     }
 
     function handleFormErrorGet(jqXHR, textStatus, errorThrown) {
