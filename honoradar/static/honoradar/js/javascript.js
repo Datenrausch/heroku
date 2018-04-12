@@ -1,8 +1,10 @@
 
 var css = '.range::-webkit-slider-runnable-track{background:linear-gradient(90deg,#3498db {value}%,#ecf0f1 0)}'
+/*
 var outputhappiness = document.getElementById('outputhappiness')
 var inputhappiness = document.getElementById('data_athmosphaere')
 var stylehappiness = document.getElementById('style-happiness')
+*/
 
 var outputtime = document.getElementById('outputtime')
 var inputtime = document.getElementById('data_zeit')
@@ -32,8 +34,10 @@ var outputhourday = document.getElementById('outputhourday')
 var inputhourday = document.getElementById('data_stunden_tag')
 var stylehourday = document.getElementById('style-hour-day')
 
+/*
 inputhappiness.addEventListener('input', rangehappiness)
 inputhappiness.addEventListener('change', rangehappiness)
+*/
 
 inputtime.addEventListener('input', rangetime)
 inputtime.addEventListener('change', rangetime)
@@ -56,10 +60,12 @@ inputdaymonth.addEventListener('change', rangedaymonth)
 inputhourday.addEventListener('input', rangehourday)
 inputhourday.addEventListener('change', rangehourday)
 
+/*
 function rangehappiness(event) {
   outputhappiness.textContent = event.target.value
   stylehappiness.textContent = css.replace('{value}', Math.round(event.target.value / 3.6))
 }
+*/
 
 function rangetime(event) {
   outputtime.textContent = event.target.value
@@ -208,6 +214,10 @@ function festfunction() {
     element.classList.add("show");
     element.classList.remove("hide");
 
+	var element = document.getElementById("banner-left-shadow-2");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
 	var element = document.getElementById("banner-left-triangle");
     element.classList.add("show");
     element.classList.remove("hide");
@@ -318,6 +328,10 @@ function pauschalfunction() {
     element.classList.add("show");
     element.classList.remove("hide");
 
+	var element = document.getElementById("banner-left-shadow-2");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
 	var element = document.getElementById("banner-left-triangle");
     element.classList.add("show");
     element.classList.remove("hide");
@@ -413,6 +427,10 @@ function freifunction() {
     element.classList.add("show");
     element.classList.remove("hide");
 
+	var element = document.getElementById("banner-left-shadow-2");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
 	var element = document.getElementById("banner-left-triangle");
     element.classList.add("show");
     element.classList.remove("hide");
@@ -499,24 +517,16 @@ function videofunction() {
 	element.classList.remove("alert-switch");
 }
 
-function getfunctionfest() {
+function getfunction() {
 	var element = document.getElementById("analyse_submit");
     element.classList.add("show");
     element.classList.remove("hide");
 
-	var element = document.getElementById("question-4");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-5");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-6");
-    element.classList.add("hide");
-    element.classList.remove("show");
+	var element = document.getElementById("media-analyse");
+    element.classList.remove("alert");
 }
 
+/*
 function getfunctionpauschal() {
 	var element = document.getElementById("analyse_submit");
     element.classList.add("show");
@@ -552,12 +562,9 @@ function getfunctionfrei() {
     element.classList.add("hide");
     element.classList.remove("show");
 }
+*/
 
-function analysefunction() {
-	var element = document.getElementById("result");
-    element.classList.add("show");
-    element.classList.remove("hide");
-}
+
 
 function alertoffdatamedium() {
 	var element = document.getElementById("data_medium");
@@ -571,11 +578,6 @@ function alertoffdataloan() {
 
 function alertoffdataposition() {
 	var element = document.getElementById("data_position");
-    element.classList.remove("alert");
-}
-
-function alertoffalaysemedium() {
-	var element = document.getElementById("media-analyse");
     element.classList.remove("alert");
 }
 
@@ -643,11 +645,219 @@ function alertoffdatavideo() {
     element.classList.remove("alert-bar_video");
 }
 
+/*Datalist Fix*/
+
+(function() {
+	var inputs = document.getElementsByTagName('input');
+	for( var i = 0; i < inputs.length; i++ ) {
+		var input = inputs[i];
+		input.onchange = function(evt) {
+		var elem = evt ? evt.target : window.event.srcElement;
+		};
+	}
+}())
+
+
+var slide = document.getElementById("data_athmosphaere");
+var text = document.getElementById("outputhappiness");
+slide.onchange = function() {
+slide.innerHTML = this.value;
+slidervalue=(slide.value)
+
+if (slidervalue ==1){
+	console.log(slidervalue)
+	text.classList.add("fav-output-1");
+	text.classList.remove("fav-output-0", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==2) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-2");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==3) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-3");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==4) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-4");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==5) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-5");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-6", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==6) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-6");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-7", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==7) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-7");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-8", "fav-output-9");
+}
+
+if (slidervalue ==8) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-8");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-9");
+}
+
+else if (slidervalue ==9) {
+	console.log(slidervalue)
+	text.classList.add("fav-output-9");
+	text.classList.remove("fav-output-0", "fav-output-1", "fav-output-2", "fav-output-3", "fav-output-4", "fav-output-5", "fav-output-6", "fav-output-7", "fav-output-8");
+}
+
+}
+
+function reload() {
+	var element = document.getElementById("ACCEPTED");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("banner-left-1");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
+	var element = document.getElementById("banner-left-4");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("data_medium");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
+	var element = document.getElementById("data_arbeitsverhaeltnis");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
+	var element = document.getElementById("newsletter_submit");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("reload_submit");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("after-submit-text-1");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("after-submit-text-2");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+
+};
+
 
 $('.smooth').on('click', function(e){
+
+})
+
+
+function hidedenied() {
+	var element = document.getElementById("WARNING");
+    element.classList.add("hide");
+    element.classList.remove("show");
+};
+
+function hideaccepted() {
+	var element = document.getElementById("ACCEPTED");
+    element.classList.add("hide");
+    element.classList.remove("show");
+};
+
+
+function smoothfunction(){
+  console.log("this is smooth")
+  var button = document.getElementById("reload_submit");
+  console.log(button)
+
+  var href = $(button).attr('linktdirection');
+  console.log(href)
+  $('html, body').animate({
+    scrollTop:$(href).offset().top
+  },'slow');
+}
+function smoothfunction_submit(){
+  console.log("this is smooth")
+  var button = document.getElementById("data_submit");
+  console.log(button)
+
+  var href = $(button).attr('linkdirection');
+  console.log(href)
+  $('html, body').animate({
+    scrollTop:$(href).offset().top
+  },'slow');
+}
+function textamountloan() {
+	var element = document.getElementById("freigrafikprint");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
+	var element = document.getElementById("freigrafikaudio");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("freigrafikvideo");
+    element.classList.add("hide");
+    element.classList.remove("show");
+};
+
+function audioamountloan() {
+	var element = document.getElementById("freigrafikprint");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("freigrafikaudio");
+    element.classList.add("show");
+    element.classList.remove("hide");
+
+	var element = document.getElementById("freigrafikvideo");
+    element.classList.add("hide");
+    element.classList.remove("show");
+};
+
+function videoamountloan() {
+	var element = document.getElementById("freigrafikprint");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("freigrafikaudio");
+    element.classList.add("hide");
+    element.classList.remove("show");
+
+	var element = document.getElementById("freigrafikvideo");
+    element.classList.add("show");
+    element.classList.remove("hide");
+};
+function smoothfunction(){
+  console.log("this is smooth")
+  var button = document.getElementById("reload_submit");
+  console.log(button)
+
+  var href = $(button).attr('linkdirection');
+  console.log(href)
+  $('html, body').animate({
+    scrollTop:$(href).offset().top
+  },'slow');
+};
+$('#machmit').on('click', function(event){
+  event.preventDefault();
+
   var href = $(this).attr('href');
   $('html, body').animate({
     scrollTop:$(href).offset().top
   },'slow');
-  e.preventDefault();
 })
