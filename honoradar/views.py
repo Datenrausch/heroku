@@ -135,6 +135,7 @@ def senddata(request):
             MediumName = (request.POST.get('MediumName'))
             FreeOrEmployed = (request.POST.get('FreeOrEmployed'))
             Comment = (request.POST.get('Comment'))
+            print(Comment)
             AGB = (request.POST.get('AGB'))
             Happiness = (request.POST.get('Happiness'))
             print(Happiness)
