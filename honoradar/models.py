@@ -26,7 +26,7 @@ class Choice(models.Model):
 
 
 class Medium(models.Model):
-    mediumname = models.CharField(max_length=200)
+    mediumname = models.TextField(max_length=200)
     FREEOREMPLOYED = Choices("fest","pauschal","frei")
     freeoremployed = models.CharField(choices=FREEOREMPLOYED, default=FREEOREMPLOYED.frei, max_length=10)
 
@@ -44,9 +44,9 @@ class DataCollection(models.Model):
 
 
     #Have to change into buttons
-    JobPosition=models.CharField(default="None",max_length=200)
+    JobPosition=models.TextField(default="None",max_length=200)
     EXPERIENCE = Choices("keineAngabe","1 Jahr","3 Jahre"," 5 Jahre")
-    Experience = models.CharField(choices=EXPERIENCE, default=EXPERIENCE.keineAngabe, max_length=10, null=True)
+    Experience = models.CharField(choices=EXPERIENCE, default=EXPERIENCE.keineAngabe, max_length=20, null=True)
 
     HoursPerWeekEmp=models.FloatField(default=0)
     HoursSpentFree=models.FloatField(default=0)
@@ -56,10 +56,10 @@ class DataCollection(models.Model):
     Genre=models.CharField(default="None",max_length=200)
 
     VATF = Choices("keineAngabe","text","audio"," video")
-    VideoAudioTextFree = models.CharField(choices=VATF, default=VATF.keineAngabe, max_length=200, null=True)
+    VideoAudioTextFree = models.CharField(choices=VATF, default=VATF.keineAngabe, max_length=20, null=True)
 
     ANALOGDIGITAL = Choices("keineAngabe","Analog","Digital","Analog & Digital")
-    AnalogDigitalFree = models.CharField(choices=ANALOGDIGITAL, default=ANALOGDIGITAL.keineAngabe, max_length=200, null=True)
+    AnalogDigitalFree = models.CharField(choices=ANALOGDIGITAL, default=ANALOGDIGITAL.keineAngabe, max_length=20, null=True)
 
 
     MinPerAudioFree=models.FloatField(default=0)
