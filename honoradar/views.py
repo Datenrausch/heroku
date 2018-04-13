@@ -212,7 +212,7 @@ def senddata(request):
                             HoursPerWeekEmp=float(HoursPerWeekEmp),
                             JobPosition=JobPosition,
                             Experience=Experience,
-                            Comment=Comment,
+                            Comment="nix"
                         )
                     else:
                         pass

@@ -66,7 +66,7 @@ class DataCollection(models.Model):
     MinPerVideoFree=models.FloatField(default=0)
     CharPerArticleFree=models.FloatField(default=0)
 
-    Comment=models.CharField(default="Kein Kommentar",max_length=60, null=True)
+    Comment=models.TextField(default="Kein Kommentar",max_length=600, null=True)
 
 
 
