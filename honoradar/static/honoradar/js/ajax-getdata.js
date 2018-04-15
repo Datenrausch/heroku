@@ -17,10 +17,15 @@ $(document).ready(function() {
         if ($data_medium == ""){
           console.log("Empty")
           document.getElementById('media-analyse').classList.add("alert");
+          document.getElementById('WARNING_getdata').classList.add("show");
+          document.getElementById('WARNING_getdata').classList.remove("hide");
+
 
 
         }
         else{
+          document.getElementById('WARNING_getdata').classList.add("hide");
+          document.getElementById('WARNING_getdata').classList.remove("show");
         $.ajax({
             method: "GET",
             url: $url,
@@ -92,6 +97,19 @@ $(document).ready(function() {
           console.log(element)
           element.classList.add("show");
           element.classList.remove("hide");
+
+          var element=document.getElementById("result_athmosphaere-fest")
+          element.setAttribute("value", 5)
+          element.setAttribute("class","range result_happiness-bar result_happiness-5")
+
+          var element=document.getElementById("result_athmosphaere-pauschal")
+          element.setAttribute("value",5)
+          element.setAttribute("class","range result_happiness-bar result_happiness-5")
+
+          var element=document.getElementById("result_athmosphaere-frei")
+          element.setAttribute("value",5)
+          element.setAttribute("class","range result_happiness-bar result_happiness-5")
+
 
           if (data["MediumFestHappiness"]) {
               if (data["MediumFestHappiness"]["status"] == "Success") {
