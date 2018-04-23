@@ -102,59 +102,10 @@ function rangehourday(event) {
   stylevideo.textContent = css.replace('{value}', Math.round(event.target.value / 3.6))
 }
 
-
-
-
-
-/*
-window.onload=function(){
-document.querySelector('#data_stunden_woche').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_tag_monat').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_stunden_tag').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_laenge_text').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_laenge_audio').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_laenge_video').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_zeit').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_athmosphaere').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-document.querySelector('#data_zusammenarbeit').addEventListener('input', function rangeChange() {
-  this.setAttribute('value', this.value);
-});
-}
-
-*/
-
-
-
-
 function festfunction() {
-	var element = document.getElementById("question-1");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-2");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-3");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
+	var element = document.getElementById("data_submit");
+	element.disabled = false;
+	
 	var element = document.getElementById("data_gehalt");
     element.classList.add("show");
     element.classList.remove("hide");
@@ -197,6 +148,10 @@ function festfunction() {
 	var element = document.getElementById("pre-data_laenge_video");
     element.classList.add("hide");
     element.classList.remove("show");
+	
+	var element = document.getElementById("pre-data_genre");
+    element.classList.add("hide");
+    element.classList.remove("show");
 
 	var element = document.getElementById("data_genre");
     element.classList.add("hide");
@@ -225,6 +180,10 @@ function festfunction() {
 	var element = document.getElementById("data_position");
     element.classList.add("show");
     element.classList.remove("hide");
+
+	var element = document.getElementById("pre-data_position");
+    element.classList.add("show");
+    element.classList.remove("hide");	
 
 	var element = document.getElementById("pre-data_erfahrung_jahr_1_3_5");
     element.classList.add("show");
@@ -257,18 +216,9 @@ function festfunction() {
 };
 
 function pauschalfunction() {
-	var element = document.getElementById("question-1");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-2");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-3");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
+	var element = document.getElementById("data_submit");
+	element.disabled = false;
+	
 	var element = document.getElementById("data_gehalt");
     element.classList.add("show");
     element.classList.remove("hide");
@@ -311,6 +261,10 @@ function pauschalfunction() {
 	var element = document.getElementById("pre-data_laenge_video");
     element.classList.add("hide");
     element.classList.remove("show");
+	
+	var element = document.getElementById("pre-data_genre");
+    element.classList.add("hide");
+    element.classList.remove("show");
 
 	var element = document.getElementById("data_genre");
     element.classList.add("hide");
@@ -333,6 +287,10 @@ function pauschalfunction() {
     element.classList.remove("hide");
 
 	var element = document.getElementById("banner-left-triangle");
+    element.classList.add("show");
+    element.classList.remove("hide");
+	
+	var element = document.getElementById("pre-data_position");
     element.classList.add("show");
     element.classList.remove("hide");
 
@@ -371,17 +329,8 @@ function pauschalfunction() {
 };
 
 function freifunction() {
-	var element = document.getElementById("question-1");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-2");
-    element.classList.add("hide");
-    element.classList.remove("show");
-
-	var element = document.getElementById("question-3");
-    element.classList.add("hide");
-    element.classList.remove("show");
+	var element = document.getElementById("data_submit");
+	element.disabled = false;
 
 	var element = document.getElementById("data_gehalt");
     element.classList.add("hide");
@@ -410,6 +359,10 @@ function freifunction() {
 	var element = document.getElementById("pre-data_format_text_audio_video");
     element.classList.add("show");
     element.classList.remove("hide");
+	
+	var element = document.getElementById("pre-data_genre");
+    element.classList.add("show");
+    element.classList.remove("hide");
 
 	var element = document.getElementById("data_genre");
     element.classList.add("show");
@@ -434,6 +387,10 @@ function freifunction() {
 	var element = document.getElementById("banner-left-triangle");
     element.classList.add("show");
     element.classList.remove("hide");
+	
+	var element = document.getElementById("pre-data_position");
+    element.classList.add("hide");
+    element.classList.remove("show");
 
 	var element = document.getElementById("data_position");
     element.classList.add("hide");
@@ -519,8 +476,7 @@ function videofunction() {
 
 function getfunction() {
 	var element = document.getElementById("analyse_submit");
-    element.classList.add("show");
-    element.classList.remove("hide");
+	element.disabled = false;
 
 	var element = document.getElementById("media-analyse");
     element.classList.remove("alert");
@@ -729,22 +685,31 @@ function reload() {
 	var element = document.getElementById("ACCEPTED");
     element.classList.add("hide");
     element.classList.remove("show");
-
+	
+	var element = document.getElementById("data_submit");
+    element.classList.add("show");
+    element.classList.remove("hide");
+	element.disabled = true;
+	
+	var element = document.getElementById("pre-data_genre");
+    element.classList.add("hide");
+    element.classList.remove("show");
+	
+	var element = document.getElementById("pre-data_position");
+    element.classList.add("hide");
+    element.classList.remove("show");
+	
     var element = document.getElementById("outputtime");
-      element.innerHTML="0";
+	element.innerHTML="0";
 
-      var element = document.getElementById("outputdaymonth");
-        element.innerHTML="0";
+	var element = document.getElementById("outputdaymonth");
+	element.innerHTML="0";
 
-        var element = document.getElementById("outputhourday");
-          element.innerHTML="0";
+	var element = document.getElementById("outputhourday");
+	element.innerHTML="0";
 
-          var element = document.getElementById("outputhourweek");
-            element.innerHTML="0";
-
-
-
-
+	var element = document.getElementById("outputhourweek");
+	element.innerHTML="0";
 
 	var element = document.getElementById("banner-left-1");
     element.classList.add("show");
@@ -778,16 +743,14 @@ function reload() {
     element.classList.add("hide");
     element.classList.remove("show");
 
+	console.log("this is smooth")
+	var button = document.getElementById("reload_submit");
+	console.log(button)
 
-
-      console.log("this is smooth")
-      var button = document.getElementById("reload_submit");
-      console.log(button)
-
-      var href = $(button).attr('linkdirectionup');
-      console.log(href)
-      $('html, body').animate({
-        scrollTop:$(href).offset().top
+	var href = $(button).attr('linkdirectionup');
+	console.log(href)
+	$('html, body').animate({
+	scrollTop:$(href).offset().top
       },'slow');
 
 
@@ -901,4 +864,45 @@ $('#machmit').on('click', function(event){
   $('html, body').animate({
     scrollTop:$(href).offset().top
   },'slow');
-})
+});
+
+/*Transition Function für späteres Feature !!
+
+$(document).ready(function(){
+    $("#banderole").click(function(){
+        $("#banderole").toggle(1000);
+    });
+});
+
+*/
+
+window.onload = function (){
+		//	var startTimer = Date.now();
+		//	var endTimer = startTimer+900000;
+		//if(startTimer<endTimer){
+	document.getElementById("comment-1").style.display="inline-block";
+	setTimeout(function(){document.getElementById("comment-1").style.display="none";					 
+	document.getElementById("comment-2").style.display="inline-block"},5000);
+	
+	setTimeout(function(){document.getElementById("comment-2").style.display="none";					 
+	document.getElementById("comment-3").style.display="inline-block"},10000);
+	
+	setTimeout(function(){document.getElementById("comment-3").style.display="none";					 
+	document.getElementById("comment-4").style.display="inline-block"},15000);
+	
+	setTimeout(function(){document.getElementById("comment-4").style.display="none";					 
+	document.getElementById("comment-5").style.display="inline-block"},20000);
+	
+	setTimeout(function(){document.getElementById("comment-5").style.display="none";					 
+	document.getElementById("comment-6").style.display="inline-block"},25000);
+	
+	setTimeout(function(){document.getElementById("comment-6").style.display="none";					 
+	document.getElementById("comment-7").style.display="inline-block"},30000);
+	
+	setTimeout(function(){document.getElementById("comment-7").style.display="none";					 
+	document.getElementById("comment-8").style.display="inline-block"},35000);
+	
+	setTimeout(function(){document.getElementById("comment-8").style.display="none";					 
+	document.getElementById("comment-9").style.display="inline-block"},40000);
+};
+//}else{document.getElementById("comment-1").style.display="none";}
