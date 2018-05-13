@@ -691,6 +691,12 @@ function reload() {
     element.classList.remove("hide");
 	element.disabled = true;
 
+
+	var element = document.getElementById("analyse_submit");
+    element.classList.add("show");
+    element.classList.remove("hide");
+	element.disabled = true;
+
 	var element = document.getElementById("pre-data_genre");
     element.classList.add("hide");
     element.classList.remove("show");
@@ -747,7 +753,7 @@ function reload() {
 	var button = document.getElementById("reload_submit");
 	console.log(button)
 
-	var href = $(button).attr('linkdirectionup');
+	var href = $(button).attr('linkdirection');
 	console.log(href)
 	$('html, body').animate({
 	scrollTop:$(href).offset().top
@@ -770,6 +776,12 @@ function hidedenied() {
 
 function hidedenied2() {
 	var element = document.getElementById("WARNING_getdata");
+    element.classList.add("hide");
+    element.classList.remove("show");
+};
+
+function hidedenied3() {
+	var element = document.getElementById("alert-disclaimer");
     element.classList.add("hide");
     element.classList.remove("show");
 };
