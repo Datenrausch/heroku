@@ -145,11 +145,6 @@ $(document).ready(function() {
                 element.classList.add("hide");
                 element.classList.remove("show");
             }
-            var element = document.getElementById("pre-data_position");
-            if (element != null) {
-                element.classList.add("hide");
-                element.classList.remove("show");
-            }
 
             var element = document.getElementById("newsletter_submit");
             element.classList.add("show");

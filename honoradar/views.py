@@ -697,7 +697,7 @@ def senddata(request):
         print(MediumName)
 
 
-        with io.open('honoradar/static/honoradar/mediumsname.json', "r") as json_file:
+        with open('honoradar/static/honoradar/mediumsname.json') as json_file:
             oldjsondata = json.load(json_file)
             inthere=0
             for p in oldjsondata:
@@ -1186,12 +1186,6 @@ def getdata(request):
         MediumNoDataAtAll={"nodata":"Es gibt keine Daten"}
 
         DoesMediumExist=DataCollection.objects.filter(Medium__mediumname=MediumName)
-        mediumoverallcount=DoesMediumExist.count()
-        FairnessCount=DoesMediumExist.filter(fairness='Ja').count()
-        print("FairnessCount: ",FairnessCount)
-        mediumoverallcount_dict={"mediumoverallcount":mediumoverallcount,"FairnessCount":FairnessCount}
-        Mediumdict.update(mediumoverallcount_dict)
-
         if (DoesMediumExist.count())==0:
             print("this should trigger, no data at all")
             Mediumdict.update(MediumNoDataAtAll)
@@ -1201,8 +1195,6 @@ def getdata(request):
 
         MediumFest=DataCollection.objects.filter(Medium__mediumname=MediumName, Medium__freeoremployed="fest")
         AllFest=DataCollection.objects.filter(Medium__freeoremployed="fest")
-        mediumfestcount=MediumFest.count()
-
         if ((MediumFest.count()) > 1):
             print("more than one for fest")
 
@@ -1218,7 +1210,6 @@ def getdata(request):
 
 
             MediumFestContext = {
-                    "mediumfestcount":mediumfestcount,
                        "MediumFestSalaryPerHour": MediumFestSalaryPerHour,
                        "MediumFestSalaryPerMonth":MediumFestSalaryPerMonth,
                        "MediumFestHoursPerWeekEmp": MediumFestHoursPerWeekEmp,
@@ -1236,7 +1227,6 @@ def getdata(request):
 
         MediumPauschal=DataCollection.objects.filter(Medium__mediumname=MediumName, Medium__freeoremployed="pauschal")
         AllPauschal=DataCollection.objects.filter(Medium__freeoremployed="pauschal")
-        mediumpauschalcount=MediumPauschal.count()
 
         if ((MediumPauschal.count()) > 1):
             MediumPauschalSalaryPerHour = StdAvgFunction(MediumPauschal, 'SalaryPerHour')
@@ -1255,7 +1245,6 @@ def getdata(request):
 
 
             MediumPauschalContext = {
-            "mediumpauschalcount":mediumpauschalcount,
             "MediumPauschalSalaryPerHour": MediumPauschalSalaryPerHour,
             "MediumPauschalSalaryPerMonth":MediumPauschalSalaryPerMonth,
             "MediumPauschalDaysPerMonthMix": MediumPauschalDaysPerMonthMix,
@@ -1276,7 +1265,6 @@ def getdata(request):
 
         MediumFrei=DataCollection.objects.filter(Medium__mediumname=MediumName, Medium__freeoremployed="frei")
         AllFrei=DataCollection.objects.filter(Medium__freeoremployed="frei")
-        mediumfreicount=MediumFrei.count()
 
         if ((MediumFrei.count()) > 1):
 
@@ -1308,7 +1296,6 @@ def getdata(request):
 
             MediumFreiContext = {
             'mediumname': MediumName,
-            "mediumfreicount":mediumfreicount,
             "MediumFreiSalaryPerHour": MediumFreiSalaryPerHour,
             "MediumFreiSalaryPerMonth":MediumFreiSalaryPerMonth,
             "MediumFreiFeeFree": MediumFreiFeeFree,
