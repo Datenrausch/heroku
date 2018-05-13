@@ -9,12 +9,13 @@ function gradientboxplot(responsejson, elementid) {
     console.log(elementid)
     elementstr = "'" + elementid + "'"
     console.log(document.getElementById(elementid))
-    width = document.getElementById(elementid).offsetWidth;
+    width = document.getElementById(elementid).offsetWidth*0.75;
+    console.log("width")
+    console.log(width)
 
     height = 400;
 
     function titlewrap(text, width) {
-      console.log(width)
 
       text.each(function() {
         var text = d3.select(this),
@@ -287,8 +288,8 @@ function gradientboxplot(responsejson, elementid) {
             return colorscaleellipse(d.category);
         })
         .attr("opacity", 1)
-        .attr("rx", width / 25)
-        .attr("ry", width / 100)
+        .attr("rx", width / 75)
+        .attr("ry", width / 75)
 
 
     svg
