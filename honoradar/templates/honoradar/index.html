@@ -13,6 +13,8 @@
     <meta name="robots" content="index,follow">
 
 	<!-- Flavicon -->
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
 	<link rel="shortcut icon" href="../templates/honoradar/favicon.png">
 	<link rel="icon" type="image/png" href="../templates/honoradar/favicon.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="../templates/honoradar/favicon.png" sizes="96x96">
@@ -26,6 +28,7 @@
     <link rel="stylesheet" href="{% static 'honoradar/navbar/css/reset.css'%}">
     <link rel="stylesheet" href="{% static 'honoradar/navbar/css/style.css'%}">
     <link rel="stylesheet" href="{% static 'honoradar/lity/dist/lity.css'%}">
+
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -57,7 +60,7 @@
     <div class="panel">
         <h1 class="head-title">Was verdienen Journalisten?</h1>
         <h2 class="head-subtitle-1">Die Antwort gibt's hier: Erfahre kostenlos, was Kollegen verdienen – oder trage selbst anonym deine Daten ein.</h2>
-        <h2 class="head-subtitle-2">Bisher legten Journalisten 1.245 Gehälter und Honorare bei 134 Medien offen.</h2>
+        <h2 class="head-subtitle-2">Bisher legten Journalisten {% if entriesno %}{{ entriesno }} {% endif %} Gehälter und Honorare bei {% if mediumno %}{{ mediumno }} {% endif %} Medien offen.</h2>
 
         <a href="#banderole" id="machmit" class="smooth clear-absolute"><h3 class="head-action">Mach mit!</h3></a>
         <div class="head-box-1"></div>
@@ -639,9 +642,9 @@
 
     <script src="{% static 'honoradar/navbar/js/modernizr.js'%}"></script>
     <script src="{% static 'honoradar/js/html5shiv.js'%}"></script>
-    <script src="{% static 'honoradar/lity/dist/lity.js'%}"></script>
-    <script src="{% static 'honoradar/js/javascript.js'%}"></script>
     <script src="{% static 'honoradar/navbar/js/jquery-2.1.1.js'%}"></script>
+
+    <script src="{% static 'honoradar/lity/dist/lity.js'%}"></script>
     <script src="{% static 'honoradar/navbar/js/main.js'%}"></script>
     <script src="{% static 'honoradar/js/ajax-setup.js'%}"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -657,6 +660,9 @@
     <!--<script src="static/honoradar/js/autocomplete-genre.js"></script>-->
     <!--<script src="static/honoradar/js/autocomplete-position.js"></script>-->
     <script src="static/honoradar/js/datalist-polyfill.min.js"></script>
+    <link rel="stylesheet" href="static/honoradar/lity/dist/lity.css">
+
+    <script src="{% static 'honoradar/js/javascript.js'%}"></script>
 
 
     </script>
