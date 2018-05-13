@@ -9,7 +9,7 @@
   	<meta name="description" content="Honorardar">
   	<meta name="author" content="Michel Penke und Haluka Maier-Borst">
   	<meta name="date" content="2017-11-18">
-  	<meta name="robots" content="index,follow">
+	<meta name="robots" content="index,follow">
 
     <!-- Favicon final_redone: https://realfavicongenerator.net PLEASE DO NOT FORGET -->
     <link rel="shortcut icon" type="image/x-icon" href="#">
@@ -31,30 +31,30 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gibs da nicht schon 'n Tumblr?">
-    <meta name="twitter:description" content="Wie geht gutes Verhandeln? Tipps, wie du dich bei Honorar-Verhandlungen am besten durchsetzt.">
-    <meta name="twitter:url" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/artikel/tumblr.html">
-    <meta name="twitter:image" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/image/tumblr.png">
+    <meta name="twitter:title" content="Newsletter: Freischreiber-Report">
+    <meta name="twitter:description" content="Freischreiber-Report: Melde dich für den jährlichen Newsletter an!">
+    <meta name="twitter:url" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/artikel/newsletter.html">
+    <meta name="twitter:image" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/image/newsletter.png">
 
     <!-- Facebook / Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:locale" content="de_DE">
 	<meta property="og:site_name" content="Was Journalisten verdienen">
-    <meta property="og:title" content="Gibs da nicht schon 'n Tumblr?">
-    <meta property="og:description" content="Welche anderen Info-Seiten gibt es, wo sich Journalisten über Honorare und Gehälter informieren können?">
-    <meta property="og:url" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/artikel/tumblr.html">
-    <meta property="og:image" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/image/tumblr.png">
+    <meta property="og:title" content="Newsletter: Freischreiber-Report">
+    <meta property="og:description" content="Freischreiber-Report: Melde dich für den jährlichen Newsletter an!">
+    <meta property="og:url" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/artikel/newsletter.html">
+    <meta property="og:image" content="https://wwww.wasjournalistenverdienen.de/static/honoradar/image/newsletter.png">
 
     <!-- General SEO -->
-    <meta name="author" content="Michel Penke">
-    <meta name="title" content="Gibs da nicht schon 'n Tumblr?">
-    <meta name="description" content="Welche anderen Info-Seiten gibt es, wo sich Journalisten über Honorare und Gehälter informieren können?">
-    <meta name="keywords" content="verhandeln,honorar,gehalt,geld,journalist,einkommen,schritte,regeln,tumblr,wasjournalistenverdienen">
+    <meta name="author" content="Michel Penke und Haluka Maier-Borst">
+    <meta name="title" content="Newsletter: Freischreiber-Report">
+    <meta name="description" content="Freischreiber-Datenspende: Worum geht es bei dem Projekt?">
+    <meta name="keywords" content="newsletter,freischreiber,report,ranking,medien,gehalt,honorar,übersicht,daten,datenbank,analyse,bericht,journalisten,verdienen,gehalt,honorar,pauschale,einkommen,euro,job,redakteur,angebot,verhandeln">
 
 </head>
 
 <body>
-    <title>Gibs da nicht schon 'n Tumblr?</title>
+    <title>Newsletter</title>
 
 <!-- Navbar -->
     <a href="#cd-nav" class="cd-nav-trigger clear-fixed">Menu
@@ -105,80 +105,97 @@
 	<div class="text-feld">
 	
 <!-- Titel-Box-->
-	<h1 class="text-title">Gibs da nicht schon 'n Tumblr?</h1>
+	<h1 class="text-title">Newsletter-Anmeldung</h1>
 	
 <!-- Teaser -->
-	<div class="teaser-box">
-	Richtig, bis vor einiger Zeit bot ein Tumblr die Möglichkeit, sich über Honorar-Daten auszutauschen. Doch der Tumblr ist tot – und auch andere Angebote schimmeln vor sich hin. 
+	<div class="teaser-box teaser-box-abstand">
+	Willst du die großen Jahres-Analysen lesen und über Neuigkeiten informiert werden? Dann melde dich beim Newsletter an. 
+	
 	</div>
 
-<!-- Autorenbox -->
-	<a href="http://michelpenke.de">
-	<div class="autoren-box autor-michel offset-autorenbox">
-	</div>
-	</a>
-	
 <!-- Text-Box -->
 	<p class="text-box offset-2">
-	Es war recht simpel. Ein öffentlicher Blog, und jeder konnte seine Erfahrungen zu Gehältern und Honoraren hineinschreiben. 
-	Der Tumblr "Was Journalisten verdienen" wurde vor Jahren von den Freischreibern gestartet, später jedoch geschlossen, weil durch ein technisches Update die Anonymität der Spender gefährdet war. 
-	Nun ist diese Website quasi als Nachfolger entstanden. 
+	Einmal im Jahr veröffentlichen wir den Freischreiber-Report mit einer Analyse der deutschsprachigen Medienlandschaft und einem Honorar- und Gehalts-Ranking.
+	Wenn wir dich informieren sollen, sobald es soweit ist, trage dich bei einem der Newsletter ein. 
 	</p>
+	
+<!-- Newsletter-Script -->
+	<script type="text/javascript">
+	//<![CDATA[
+	if (typeof newsletter_check !== "function") {
+	window.newsletter_check = function (f) {
+		var re = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-]{1,})+\.)+([a-zA-Z0-9]{2,})+$/;
+		if (!re.test(f.elements["ne"].value)) {
+			alert("Diese Email ist nicht korrekt. ");
+			return false;
+		}
+		for (var i=1; i<20; i++) {
+		if (f.elements["np" + i] && f.elements["np" + i].required && f.elements["np" + i].value == "") {
+			alert("");
+			return false;
+		}
+		}
+		if (f.elements["ny"] && !f.elements["ny"].checked) {
+			alert("Du musst die Datenschutz-AGBs akzeptieren. ");
+			return false;
+		}
+		return true;
+	}
+	}
+	//]]>
+	</script>
+	
+	<div id="" class="newsletter-box">
+	<h2 class="newsletter-box-title">Freischreiber-Reporte</h2>
+	<form method="post" action="http://michelpenke.de/?na=s" onsubmit="return newsletter_check(this)">
+	<fieldset id="fieldset">
+		<p><input class="email-select" type="email" id="email" name="ne" size="30" placeholder="Deine Emailadresse ..." required></p>
+				<div style="display: none;">
+					<input type="checkbox" name="nl[]" value="1" checked/>Was-Journalisten-Verdienen<br />
+				</div>
+		<p><input name="AGB" class="checkbox-newsletter" name="ny" type="checkbox" id="newsletter_checkbox-1" required/>
+		<label class="checkboxlabel-newsletter" for="newsletter_checkbox-1"></label>
+		<span class="checkboxtext-newsletter">Ich akzeptiere die <a href="../../../static/honoradar/artikel/datenschutz.html" target="_blank" class="clear-agb">Datenschutz-AGBs</a> dieser Seite.</span></p>
+		<input class="submit-newsletter" type="submit" value="Abonnieren"/>
+	</fieldset>
+      </form>
+    </div>
 	
 	<p class="text-box offset-2">
-	Ganz allein steht sie nicht. Auch einige andere Seiten haben versucht, Transparenz in das Thema zu bringen. Doch derzeit verrotten die wenigen Versuche vor sich hin oder wurden ganz abgeschaltet. 
-	</p>
-	
-	<h2 class="zwischentitel offset-3">Wo gibt es sonst Honorar-Infos?</h2>
-	<p class="text-box offset-3">
-	Da ist zum Beispiel das "Mediafon". Eine in die Jahre gekommene Website der Gewerkschaft Verdi im Pixel-Look der 90er-Jahre. 
-	Auch dort können Journalisten <a href="http://www.mediafon.net/empfehlungen_honorar_fragebogen.php3?view=&si=5adcbf87ab3ce&lang=1">Daten hinschicken</a>. 
-	Eine Datenbank listet sie später, alphabetisch nach Medium sortiert, auf. 
-	Wie viele Datenpunkte es gibt, lässt sich schwer sagen. Die Website selbst verspricht Infos zu <a href="http://www.mediafon.net/empfehlungen_honorare_text.php3?view=&si=5adcb9f1e4356&lang=1">59 Medien</a> – bei weit über 2.000 Zeitungen, Magazinen, Online-Angeboten, Fernseh- und Radiosendern, die wir in Deutschland haben. 
-	Wer hier fündig wird, hat Glück gehabt. Anders als diese Website weist die Datenbank aber auch Bild-Honorare aus. 
-	</p>
-	
-	<p class="text-box offset-3">
-	Der DJV bietet zwar keine interaktive Version, stellt aber auf <a href="https://www.djv.de/startseite/info/beruf-betrieb/uebersicht-tarife-honorare.html">seiner Website</a> zumindest die ausgehandelten Tarif-Löhne aus. 
-	Angestellte Redakteure sollten <a href="https://www.djv.de/fileadmin/user_upload/INFOS/Themen/Medienpolitik/Tarifpolitik/Gehaltsrunde_Tageszeitungen_2016_-_2018.pdf">demnach</a> zwischen 2016 und 2018 als Berufseinsteiger rund 3.250 Euro verdienen. 
-	Freie Journalisten dürfen <a href="https://www.djv.de/fileadmin/user_upload/INFOS/Themen/Medienpolitik/Tarifpolitik/Honorartabelle_für_Text-_und_Bildbeiträge_2016_-_2018.pdf">laut DJV</a> bei Medien mit Auflagen bis zu 100.000 rund 95 Cent pro Zeile verlangen. 
-	Eine Unterscheidung macht der DJV bei den Medien nicht. Für Online-Angebote sind die Info-Papiere schon etwas in die Jahre gekommen. 
-	Die letzten ausgehandelten <a href="https://www.djv.de/fileadmin/_migrated/cal_uploads/DJVWissen2012.pdf">Honorar-Empfehlungen</a> stammen von 2012 und erstrecken sich über 48 Seiten klein gedruckten Text. 
-	</p>
-	
-<!-- Artikelbild -->
-	<div class="artikelbild artikelbild-mediafon">
-	</div>
-	
-	<h2 class="zwischentitel offset-2">Alt – oder ganz offline</h2>
-	<p class="text-box offset-2">
-	Daneben kursieren noch einige anderen Gehalts-Check-Portale im Netz, die jedoch nicht auf Journalisten spezialisiert sind. 
-	Das schwächt Aussagekraft und Präzision. 
-	Zu Honoraren von freien Journalisten bietet meines Wissens keine Seite Daten an. 
-	</p>
-	
-	<p class="text-box offset-2">
-	Hinzu kommen Zahlen, die einige wenige Medien von sich aus online publizieren. Zumindest die öffentlich-rechtlichen Anstalten wie der <a href="https://www.rbb-online.de/unternehmen/der_rbb/zahlenundfakten/personalkennzahlen.html">RBB</a> haben sich schon mal in die Karten schauen lassen. 
+	Wir schicken dir maximal zwei, drei Mal pro Jahr eine Mail – keinesfalls häufiger. Kein Spam. Versprochen!
 	</p>
 
-	<p class="text-box offset-3">
-	Viel mehr gibt es nicht zu entdecken. In der Summe sind die Daten meist alt, schlecht gepflegt, nicht interaktiv durchsuchbar oder ganz offline. 
-	Dabei gehört es für viele Journalisten zum Berufsalltag, um Zeilengelder zu feilschen und Foto-Honorare herauszuhandeln. 
-	Ein Vergleichs-Werkzeug aber fehlt. 
-	Für eine Berufsgruppe, die sich sonst über jeden Missstand ereifern kann, ist das seltsam und unbefriedigend. 
+	<h2 class="zwischentitel offset-3 newsletter-text">Was freie Journalisten bewegt</h2>	
+	<p class="text-box offset-3 newsletter-text">
+	Falls du mehr über die Freischreiber, den Berufsverband der freien Journalisten, erfahren willst, kannst du dich für den <a href="https://www.freischreiber.de/service/newsletter/">Freischreiber-Newsletter</a> anmelden. 
+	</p>	
+	
+	<div id="" class="newsletter-box newsletter-box-right">
+	<h2 class="newsletter-box-title">Freischreiber-Berufsverband</h2>
+	<form action="https://freischreiber.us7.list-manage.com/subscribe/post?u=0538baadc33c3c9b656707d6f&amp;id=1b498a8529"method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<fieldset id="fieldset">
+	<div class="mc-field-group">
+			<input class="email-select" type="email" value="" name="EMAIL" class="required email" placeholder="Deine Emailadresse ..." id="mce-EMAIL">
+		</div>
+		<div id="mce-responses" class="clear">
+			<div class="response" id="mce-error-response" style="display:none"></div>
+			<div class="response" id="mce-success-response" style="display:none"></div>
+		</div>   
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0538baadc33c3c9b656707d6f_1b498a8529" tabindex="-1" value=""></div>
+		<p><input name="AGB" class="checkbox-newsletter required"" name="ny" type="checkbox" id="newsletter_checkbox-2" required='required'/>
+		<label class="checkboxlabel-newsletter" for="newsletter_checkbox-2"></label>
+		<span class="checkboxtext-newsletter">Ich akzeptiere die <a href="../../../static/honoradar/artikel/datenschutz.html" target="_blank" class="clear-agb">Datenschutz-AGBs</a> dieser Seite.</span></p>
+			<input type="submit" value="Abonnieren" name="subscribe" id="mc-embedded-subscribe" class="submit-newsletter">
+	</fieldset>
+	</form>
+    </div>
+	
+	
+	<p class="text-box offset-3 newsletter-text">	
+	Er liefert Infos rund um die Arbeit als Freelancer, Tipps zu Weiterbildungen und Veranstaltungen sowie News, die deine Arbeit als Freier betreffen könnten.
+	Der Newsletter wird meist alle zwei bis drei Wochen verschickt. 	
 	</p>
-	
-<!-- Download-Button -->
-	<a href="../../../#banderole">
-		<input type="submit" class="submit-download" value="Daten spenden"/>
-	</a>
-	
-	<p class="text-box offset-3">
-	Wenn du mithelfen willst, dass feste oder freie Journalisten mehr über ihre finanzielle Situation erfahren, hilf uns:
-	Spende deine Gehalts- oder Honorardaten. Oder erzähle deinen Kollegen von dieser Seite. 
-	Denn Unwissen kostet uns alle täglich Geld. 
-	</p>
-	
+
 	</div>
 
 <!-- Social Share -->
