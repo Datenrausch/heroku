@@ -17,6 +17,7 @@ from random import shuffle
 
 
 def StdAvgFunction(entries, column):
+    print(column)
     ids = list(entries.values_list(column, flat=True))
     ids=list(filter((float(0)).__ne__, ids))
     ids=sorted(ids)
@@ -734,7 +735,8 @@ def getdata(request):
 
         DoesMediumExist=DataCollection.objects.filter(Medium__mediumname=MediumName)
         mediumoverallcount=DoesMediumExist.count()
-        FairnessCount=DoesMediumExist.filter(fairness='Ja').count()
+        FairnessCheck=Medium.objects.filter(mediumname=MediumName)
+        FairnessCount=FairnessCheck.filter(fairness='Ja').count()
         mediumoverallcount_dict={"mediumoverallcount":mediumoverallcount,"FairnessCount":FairnessCount}
         Mediumdict.update(mediumoverallcount_dict)
 
