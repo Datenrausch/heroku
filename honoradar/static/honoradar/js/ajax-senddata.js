@@ -25,6 +25,7 @@ $(document).ready(function() {
 
         alertdiv.classList.add("show");
         alertdiv.classList.remove("hide");
+
         const size = Object.keys(data).length;
         if (size > 0) {
             alertdiv.innerHTML = ""

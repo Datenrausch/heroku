@@ -45,6 +45,7 @@ $(document).ready(function() {
         const $resultpauschal = $("#result-text-pauschal")
         const $resultfest = $("#result-text-fest")
 
+
         var element = document.getElementById("result-text-frei")
         element.innerHTML = ""
         var element = document.getElementById("result-text-pauschal")
