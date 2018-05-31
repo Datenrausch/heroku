@@ -27,11 +27,9 @@ def StdAvgFunction(entries, column):
     upperboundary=0
     if n>2:
         if n % 2 == 0:
-            print("even values")
 
             median=((ids[int(n/2-1)] + ids[int(n/2)])/2.0)
         else:
-            print("uneven values")
 
             median=((ids[int(n/2-1)] + ids[int(n/2)]+ ids[int(n/2+1)])/3.0)
 
@@ -298,7 +296,16 @@ def senddata(request):
                     if(sanitycheck == 0):
                         SalaryPerHour=float(SalaryPerMonthEmpMix)/(float(HoursPerWeekEmp)*4)
                         SalaryPerMonth=SalaryPerHour*160
-
+                        if SalaryPerHour>100:
+                            Suspiciousentry="Weird"
+                        else:
+                            Suspiciousentry="Ok"
+                        mediumobj.Suspiciousmedium=Suspiciousentry
+                        mediumobj.save()
+                        mediumobj = Medium.objects.get(
+                            Q(mediumname=MediumName),
+                            Q(freeoremployed=FreeOrEmployed)
+                        )
                         d = mediumobj.datacollection_set.create(
                             SalaryPerHour=float(SalaryPerHour),
                             SalaryPerMonth=float(SalaryPerMonth),
@@ -308,7 +315,8 @@ def senddata(request):
                             JobPosition=JobPosition,
                             Experience=Experience,
                             Comment=Comment,
-                            Date=datetime.datetime.now()
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
                         )
                     else:
                         pass
@@ -363,6 +371,16 @@ def senddata(request):
                     if(sanitycheck == 0):
                         SalaryPerHour=float(SalaryPerMonthEmpMix)/(float(DaysPerMonthMix)*float(HoursPerDayMix))
                         SalaryPerMonth=SalaryPerHour*160
+                        if SalaryPerHour>100:
+                            Suspiciousentry="Weird"
+                        else:
+                            Suspiciousentry="Ok"
+                        mediumobj.Suspiciousmedium=Suspiciousentry
+                        mediumobj.save()
+                        mediumobj = Medium.objects.get(
+                            Q(mediumname=MediumName),
+                            Q(freeoremployed=FreeOrEmployed)
+                        )
                         d = mediumobj.datacollection_set.create(
                             SalaryPerHour=float(SalaryPerHour),
                             SalaryPerMonth=float(SalaryPerMonth),
@@ -373,8 +391,8 @@ def senddata(request):
                             Experience=Experience,
                             Happiness=float(Happiness),
                             Comment=Comment,
-                            Date=datetime.datetime.now()
-
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
                         )
                     else:
                         pass
@@ -453,6 +471,16 @@ def senddata(request):
                     if(sanitycheck == 0):
                         SalaryPerHour=float(FeeFree)/float(HoursSpentFree)
                         SalaryPerMonth=SalaryPerHour*160
+                        if SalaryPerHour>100:
+                            Suspiciousentry="Weird"
+                        else:
+                            Suspiciousentry="Ok"
+                        mediumobj.Suspiciousmedium=Suspiciousentry
+                        mediumobj.save()
+                        mediumobj = Medium.objects.get(
+                            Q(mediumname=MediumName),
+                            Q(freeoremployed=FreeOrEmployed)
+                        )
                         d = mediumobj.datacollection_set.create(
                             SalaryPerHour=float(SalaryPerHour),
                             SalaryPerMonth=float(SalaryPerMonth),
@@ -468,7 +496,8 @@ def senddata(request):
                             Experience=Experience,
                             Happiness=float(Happiness),
                             Comment=Comment,
-                            Date=datetime.datetime.now()
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
                         )
 
             except Medium.DoesNotExist:
@@ -514,10 +543,15 @@ def senddata(request):
 
                         SalaryPerHour=float(SalaryPerMonthEmpMix)/(float(HoursPerWeekEmp)*4)
                         SalaryPerMonth=SalaryPerHour*160
+                        if SalaryPerHour>100:
+                            Suspiciousentry="Weird"
+                        else:
+                            Suspiciousentry="Ok"
                         mediumobj = Medium(
                             mediumname=MediumName,
                             freeoremployed=FreeOrEmployed,
-                            UpDate=datetime.datetime.now())
+                            UpDate=datetime.datetime.now(),
+                            Suspiciousmedium=Suspiciousentry)
                         mediumobj.save()
                         d = mediumobj.datacollection_set.create(
                             SalaryPerHour=float(SalaryPerHour),
@@ -528,7 +562,8 @@ def senddata(request):
                             JobPosition=JobPosition,
                             Experience=Experience,
                             Comment=Comment,
-                            Date=datetime.datetime.now()
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
 
                         )
 
@@ -580,7 +615,8 @@ def senddata(request):
                         mediumobj = Medium(
                             mediumname=MediumName,
                             freeoremployed=FreeOrEmployed,
-                            UpDate=datetime.datetime.now())
+                            UpDate=datetime.datetime.now(),
+                            Suspiciousmedium=Suspiciousentry)
                         mediumobj.save()
 
                         SalaryPerHour=float(SalaryPerMonthEmpMix)/(float(DaysPerMonthMix)*float(HoursPerDayMix))
@@ -595,7 +631,8 @@ def senddata(request):
                             Experience=str(Experience),
                             Happiness=float(Happiness),
                             Comment=str(Comment),
-                            Date=datetime.datetime.now()
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
 
                         )
 
@@ -675,7 +712,8 @@ def senddata(request):
                         mediumobj = Medium(
                             mediumname=MediumName,
                             freeoremployed=FreeOrEmployed,
-                            UpDate=datetime.datetime.now())
+                            UpDate=datetime.datetime.now(),
+                            Suspiciousmedium=Suspiciousentry)
                         mediumobj.save()
                         SalaryPerHour=float(FeeFree)/float(HoursSpentFree)
                         SalaryPerMonth=SalaryPerHour*160
@@ -694,7 +732,8 @@ def senddata(request):
                             Experience=Experience,
                             Happiness=float(Happiness),
                             Comment=Comment,
-                            Date=datetime.datetime.now()
+                            Date=datetime.datetime.now(),
+                            Suspiciousentry=Suspiciousentry
 
                         )
         testdict = {}
