@@ -10,7 +10,7 @@ function gradientboxplot(responsejson, elementid) {
     height = 400;
 
     function titlewrap(text, width) {
-
+      width=width-45
       text.each(function() {
         var text = d3.select(this),
             words = text.text().split("#").reverse(),
