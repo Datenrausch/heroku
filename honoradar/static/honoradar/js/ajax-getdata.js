@@ -15,6 +15,10 @@ $(document).ready(function() {
         var $name = $myForm.attr('name-get')
         var $url = $myForm.attr('data-url-get')
 
+        document.getElementById('WARNING_unknown').classList.add("hide");
+        document.getElementById('WARNING_unknown').classList.remove("show");
+        document.getElementById('WARNING_misspelled').classList.add("hide");
+        document.getElementById('WARNING_misspelled').classList.remove("show");
 
         //This is to reset the alert in case of a second request
         document.getElementById('media-analyse').classList.remove("alert");
@@ -129,7 +133,32 @@ $(document).ready(function() {
           resultsdiv.classList.add("fair-accepted");
         }else{
           resultsdiv.classList.remove("fair-accepted");
-
+        }
+        if(data["HimmelCount"]>0){
+          resultsdiv.classList.add("got-himmel");
+        }else{
+          resultsdiv.classList.remove("got-himmel");
+        }
+        if(data["HoelleCount"]>0){
+          resultsdiv.classList.add("got-hoelle");
+        }else{
+          resultsdiv.classList.remove("got-hoelle");
+        }
+        console.log(data)
+        if((data["MediumGegendarstellung"]!="") && (data["MediumGegendarstellung"]!=undefined)){
+          console.log(data["MediumGegendarstellung"])
+          var element = document.getElementById("resultverlag")
+          element.classList.add("show");
+          element.classList.remove("hide");
+          var element = document.getElementById("gegendarstellung")
+          element.innerHTML=""
+          element.innerHTML=String(data["MediumGegendarstellung"])
+        }else{
+          var element = document.getElementById("resultverlag")
+          element.classList.add("hide");
+          element.classList.remove("show");
+          var element = document.getElementById("gegendarstellung")
+          element.innerHTML=""
         }
 
         //If it turns out that the backend says, we have no data, we show the error messages
@@ -138,10 +167,16 @@ $(document).ready(function() {
             if (element != null) {
                 element.parentNode.removeChild(element);
             }
+            if (data["nodata"] == "Vertippt?") {
+            var element = document.getElementById("WARNING_misspelled");
+            element.classList.add("show");
+            element.classList.remove("hide");
+            ;}
+            if (data["nodata"] == "Es gibt keine Daten") {
             var element = document.getElementById("WARNING_unknown");
             element.classList.add("show");
             element.classList.remove("hide");
-
+            ;}
             var element = document.getElementById("result-grid");
             element.classList.add("show");
             element.classList.remove("hide");
@@ -179,7 +214,6 @@ $(document).ready(function() {
                 var element = document.getElementById(commentid);
                 element.innerHTML = ""
                 element.innerHTML = "Keine Daten"
-
             }
 
 
@@ -192,6 +226,10 @@ $(document).ready(function() {
                 element.innerHTML = ""
             }
             var element = document.getElementById("WARNING_unknown");
+            element.classList.add("hide");
+            element.classList.remove("show");
+
+            var element = document.getElementById("WARNING_misspelled");
             element.classList.add("hide");
             element.classList.remove("show");
 
