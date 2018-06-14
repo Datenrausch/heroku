@@ -1,0 +1,136 @@
+
+/* Autoren*/
+
+.autor-michel {
+	background-image: url(../image/michel_penke.jpg);
+}
+
+.autor-michel:after {
+	content:"Michel Penke ※ Journalist & Frontend Designer";
+}
+
+.autor-haluka {
+	background-image: url(../image/haluka_maier-borst.jpg);
+}
+
+.autor-haluka:after {
+	content:"Haluka Maier-Borst ※ Datenjournalist & Python-Entwickler";
+}
+
+.autor-henry {
+	background-image: url(../image/henry_steinhau.jpg);
+}
+
+.autor-henry:after {
+	content:"Henry Steinhau ※ Medienjournalist & Freischreiber";
+}
+
+.autor-andreas {
+	background-image: url(../image/andreas_unger.jpg);
+}
+
+.autor-andreas:after {
+	content:"Andreas Unger ※ freier Journalist & Freischreiber-Vorstand";
+}
+
+.autor-fridtjof {
+	background-image: url(../image/fridtjof_atterdal.jpg);
+}
+
+.autor-fridtjof:after {
+	content:"Fridtjof Atterdal ※ Reporter, Coach & Fotograf ";
+}
+
+/*Parallax-Bilder*/
+
+.parallax-name {
+	background-image: url(../image/carola-dorner.jpg);
+}
+
+/*Infografik-Bilder*/
+
+.artikelbild-carola {
+	background-image: url(../image/carola-dorner.jpg);
+}
+
+.artikelbild-carola:after {
+	content: 'Carola Dorner, Freischreiber-Vorsitzende';
+}
+
+.artikelbild-haluka-crazy {
+	background-image: url(../image/Haluka-crazy.jpg);
+}
+
+.artikelbild-haluka-crazy:after {
+	content: 'Haluka Maier-Borst, wilder Python-Bändiger';
+}
+
+.artikelbild-michel-relaxed {
+	background-image: url(../image/Michel-relaxed.jpg);
+}
+
+.artikelbild-michel-relaxed:after {
+	content: 'Michel Penke, entspannter CSS-Großmeister';
+}
+
+.artikelbild-mediafon {
+	background-image: url(../image/mediafon.jpg);
+}
+
+.artikelbild-mediafon:after {
+	content: 'Pixel-Website "Mediafon" von Verdi';
+}
+
+/*News*/
+
+
+.news_1 {
+	background-image: url(../image/news_1.jpg);
+	padding: 130px 50px 0px calc(10%);
+}
+
+.news_2 {
+	background-image: url(../image/news_2.jpg);
+	padding: 130px 50px 20px calc(3.5%);	
+	background-size: 130% ;
+}
+
+.news_3 {
+	background-image: url(../image/news_3.jpg);
+	padding: 50px 50px 0px calc(6%);
+	background-position: center bottom;	
+}
+
+.news_4 {
+	background-image: url(../image/news_4.jpg);
+	padding: 150px 10px 0px 20px;
+	background-position: top right;	
+}
+
+.news_5 {
+	background-image: url(../image/news_5.jpg);
+	padding: 130px 10px 0px 10px;
+	text-align: right;
+	background-position: center bottom;	
+}
+
+.news_6 {
+	background-image: url(../image/news_6.jpg);
+	padding: calc(120px) 0px 0px calc(50% - 170px);
+}
+
+.news_7 {
+	background-image: url(../image/news_7.jpg);
+	padding: 145px 30px 0px calc(4%);
+}
+
+.news_8 {
+	background-image: url(../image/news_8.jpg);
+	padding: 20px 30px 0px calc(100% - 275px - 30px);
+}
+
+.news_9 {
+	background-image: url(../image/news_9.jpg);
+	padding: 140px 30px 0px calc(5%);
+	text-align: right;
+}
