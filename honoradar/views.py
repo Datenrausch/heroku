@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404, render, redirect
-from django.template import loader
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect, render_to_response
+from django.template import loader, RequestContext
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
 from django.views import generic
 from django.core.exceptions import ValidationError
@@ -14,6 +14,8 @@ import math
 import json
 import io
 from random import shuffle
+
+
 
 
 def StdAvgFunction(entries, column):
