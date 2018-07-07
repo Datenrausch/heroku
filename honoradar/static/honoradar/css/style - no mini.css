@@ -5699,6 +5699,42 @@ div.got-hoelle div div.hoelle-symbol span {
 	border: 3px solid rgba(244, 67, 54, 1);
 }
 
+/*Mechanics*/
+
+#freigrafik1, #freigrafik2, #freigrafik3, #freigrafiktext, #freigrafikaudio, #freigrafikvideo {
+	display: inline-block;
+}
+
+.hide {
+	display: none;
+}
+
+#freigrafiktext.hide, #freigrafikaudio.hide, #freigrafikvideo.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+#pauschalgrafik1.show, #festgrafik1.show, #pauschalgrafik1.nodata, #festgrafik1.nodata {
+	display: inline-block;
+}
+
+#freigrafik1 div.nodata.show, #freigrafiktext div.nodata.show, #freigrafikaudio div.nodata.show, 
+#freigrafikvideo div.nodata.show, #pauschalgrafik1 div.nodata.show, #festgrafik1 div.nodata.show {
+	display: inline-block;
+}
+
+
+#userAsCat {
+	display:none;
+}
+
+.codeoffairness.show, .quellenanzahl.show {
+	display: inline-block;
+}
+
 /*Meinungs-Slider*/
 
 .slider__item {
@@ -6613,40 +6649,4 @@ div.got-hoelle div div.hoelle-symbol span {
 	width: 90%;
 	margin-left: 5%;
 	}
-}
-
-/*Mechanics*/
-
-#freigrafik1, #freigrafik2, #freigrafik3, #freigrafiktext, #freigrafikaudio, #freigrafikvideo {
-	display: inline-block;
-}
-
-.hide {
-	display: none;
-}
-
-#freigrafiktext.hide, #freigrafikaudio.hide, #freigrafikvideo.hide {
-	display: none;
-}
-
-.show {
-	display: block;
-}
-
-#pauschalgrafik1.show, #festgrafik1.show, #pauschalgrafik1.nodata, #festgrafik1.nodata {
-	display: inline-block;
-}
-
-#freigrafik1 div.nodata.show, #freigrafiktext div.nodata.show, #freigrafikaudio div.nodata.show, 
-#freigrafikvideo div.nodata.show, #pauschalgrafik1 div.nodata.show, #festgrafik1 div.nodata.show {
-	display: inline-block;
-}
-
-
-#userAsCat {
-	display:none;
-}
-
-.codeoffairness.show, .quellenanzahl.show {
-	display: inline-block;
 }
