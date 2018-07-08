@@ -472,7 +472,6 @@ $(document).ready(function() {
 
             //We add the comments to a pre-defined container
             listofcomments = data["MediumComments"]
-            console.log(listofcomments)
               for (i = 0; i < 8; i++) {
                 var elementid="slider-comment-" + String(i + 1)
                 var element = document.getElementById(elementid);
@@ -481,7 +480,6 @@ $(document).ready(function() {
 
                 var elementid="label-slide-" + String(i + 1)
                 var element = document.getElementById(elementid);
-                console.log(elementid)
                 element.classList.add("hide");
 
                 commentid = "comment-" + String(i + 1)
@@ -509,7 +507,7 @@ $(document).ready(function() {
 
                 };
             } else {
-            
+
 
             }
 
