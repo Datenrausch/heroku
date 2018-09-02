@@ -202,14 +202,13 @@ def StdAvgTwoColumnsFunction(entries, column1, column2, operator):
 # this entire view handles the process of sending data, checking it and saving it in the backend
 def senddata(request):
     # this variable checks if all compulsory fields are filled and hence, a new instance should be created in the backend
-
     if request.is_ajax():
 
         if request.method == 'POST':
             print(request.POST)
             sanitycheck = 0
 
-            #we get the three categories that all entries have in common regardless of
+            # we get the three categories that all entries have in common regardless of
             #freelance, pauschalist or employed
             MediumName = (request.POST.get('MediumName'))
             FreeOrEmployed = (request.POST.get('FreeOrEmployed'))
@@ -943,16 +942,16 @@ def getdata(request):
             AllMedium=DataCollection.objects.filter(Medium__mediumname=MediumName)
             comments = list(AllMedium.values_list("Comment", flat=True))
             comments = list(filter(None, comments))
-
             #if there are no comments we add this default in there
-            if len(comments)==0:
-                comments.append("Leider haben wir keine Kommentare für dieses Medium")
+            #if len(comments)==0:
+                #comments.append("Leider haben wir keine Kommentare für dieses Medium")
             #if the length is below 9 we keep on increasing the number of comments
-            while (len(comments))<9:
-                comments.extend(comments)
-            shuffle(comments)
+            #while (len(comments))<9:
+                #comments.extend(comments)
+            #shuffle(comments)
             #if the length is over 9, then we keep on popping comments
-            while (len(comments))>9:
+            while (len(comments))>8:
+                shuffle(comments)
                 comments.pop()
 
             #adding these comments to the dictionary
