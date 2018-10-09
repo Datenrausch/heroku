@@ -967,6 +967,8 @@ def getdata(request):
 
 #this view defines the index
 class IndexView(generic.ListView):
+    print("start")
+
     model=DataCollection
     template_name = 'honoradar/index.html'
     def get_context_data(self, **context):
