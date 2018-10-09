@@ -991,6 +991,7 @@ class IndexView(generic.ListView):
             with io.open('honoradar/static/honoradar/mediumsname_temporary.json', 'w') as outfile:
                             data=json.dumps(new_l, ensure_ascii=False)
                             outfile.write(data)
+        print("success")
         #print("entriesno:",entriesno,"mediumno:",mediumno)
         context["entriesno"] = entriesno
         context["mediumno"] = mediumno
