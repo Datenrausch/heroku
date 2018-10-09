@@ -990,7 +990,7 @@ class IndexView(generic.ListView):
                 if t not in seen:
                     seen.add(t)
                     new_l.append(d)
-            with io.open('honoradar/static/honoradar/mediumsname_temporary.json', 'w') as outfile:
+            with io.open('tmp/mediumsname_temporary.json', 'w+') as outfile:
                             data=json.dumps(new_l, ensure_ascii=False)
                             outfile.write(data)
         print("success")
