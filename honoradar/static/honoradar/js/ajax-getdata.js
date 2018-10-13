@@ -7,7 +7,6 @@ var redraw=1
 $(document).ready(function() {
     var $myForm = $("#get-form")
      runonce=0
-    console.log(runonce)
 
         //If Form is submitted, we prevent the default of reloading
     $myForm.submit(function(event) {
@@ -135,6 +134,7 @@ $(document).ready(function() {
         const size = Object.keys(data).length;
 
         //Then we set the resultsdiv to show
+
         resultsdiv.classList.add("show");
         resultsdiv.classList.remove("hide");
 
@@ -186,7 +186,7 @@ $(document).ready(function() {
                 element.classList.add("hide");
                 element.classList.remove("show");;
             } else {
-                if (data["nodata"] == "Es gibt keine Daten") {
+                if (data["nodata"] == "Es gibt keine Daten")  {
                     var element = document.getElementById("WARNING_unknown");
                     element.classList.add("show");
                     element.classList.remove("hide");
@@ -230,8 +230,10 @@ $(document).ready(function() {
             for (i = 0; i < 9; i++) {
                 commentid = "comment-" + String(i + 1)
                 var element = document.getElementById(commentid);
+                if (element!=undefined){
                 element.innerHTML = ""
                 element.innerHTML = "Keine Daten"
+                }
             }
 
 

@@ -949,31 +949,31 @@ def getdata(request):
 
             Mediumdict.update(MediumFreiContext)
 
-            #now retrieving the comments for frei, pauschal and fest for this medium
-            AllMedium=DataCollection.objects.filter(Medium__mediumname=MediumName)
-            comments = list(AllMedium.values_list("Comment", flat=True))
-            comments = list(filter(None, comments))
+        #now retrieving the comments for frei, pauschal and fest for this medium
+        AllMedium=DataCollection.objects.filter(Medium__mediumname=MediumName)
+        comments = list(AllMedium.values_list("Comment", flat=True))
+        comments = list(filter(None, comments))
 
-            #if there are no comments we do nothing
-            if len(comments)==0:
-                pass
-            #if there are comments, we shuffle them
-            if len(comments)>0:
-                shuffle(comments)
-            #if the length is over 8, then we keep on popping comments
-            while (len(comments))>8:
-                comments.pop()
+        #if there are no comments we do nothing
+        if len(comments)==0:
+            pass
+        #if there are comments, we shuffle them
+        if len(comments)>0:
+            shuffle(comments)
+        #if the length is over 8, then we keep on popping comments
+        while (len(comments))>8:
+            comments.pop()
 
-            #adding these comments to the dictionary
-            MediumComments={"MediumComments":comments}
-            Mediumdict.update(MediumComments)
+        #adding these comments to the dictionary
+        MediumComments={"MediumComments":comments}
+        Mediumdict.update(MediumComments)
 
-            #Gets Gegendarstellungen for the medium and update the dictionar with this
-            Gegendarstellung=list(AllMedium.values_list("Gegendarstellung", flat=True))
-            Gegendarstellung = list(filter(None, Gegendarstellung))
-            print("Gegendarstellung:", Gegendarstellung)
-            MediumGegendarstellung={"MediumGegendarstellung":Gegendarstellung}
-            Mediumdict.update(MediumGegendarstellung)
+        #Gets Gegendarstellungen for the medium and update the dictionar with this
+        Gegendarstellung=list(AllMedium.values_list("Gegendarstellung", flat=True))
+        Gegendarstellung = list(filter(None, Gegendarstellung))
+        print("Gegendarstellung:", Gegendarstellung)
+        MediumGegendarstellung={"MediumGegendarstellung":Gegendarstellung}
+        Mediumdict.update(MediumGegendarstellung)
 
         #and finally return the JSON
         return JsonResponse(Mediumdict)
