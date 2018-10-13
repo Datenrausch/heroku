@@ -226,7 +226,23 @@ def senddata(request):
             # if the mediumname or the AGB is not given, we set the sanitycheck to 1
             # and create a warning message that will pop-up
             if MediumName:
-                pass
+                with io.open('honoradar/static/honoradar/mediumsname.json', "r") as json_file:
+                    oldjsondata = json.load(json_file)
+                    inthere=0
+                    for p in oldjsondata:
+                        if p['name']==MediumName:
+                            inthere=1
+                            mediumcode=p['code']
+                            MediumName=mediumcode
+                    if inthere !=1:
+                        newjsondata=oldjsondata
+                        newentry={"name":MediumName.title(),"code":MediumName.title()}
+
+                        newjsondata.append(newentry)
+
+                        with io.open('honoradar/static/honoradar/mediumsname.json', 'w') as outfile:
+                            data=json.dumps(newjsondata, ensure_ascii=False)
+                            outfile.write(data)
 
             else:
                 sanitycheck = 1
@@ -967,37 +983,35 @@ def getdata(request):
 
 #this view defines the index
 class IndexView(generic.ListView):
-    print("start")
-
     model=DataCollection
     template_name = 'honoradar/index.html'
+
     def get_context_data(self, **context):
         #gets all entries and all distinc mediumnames and passes this as context to the tempate
         entriesno = DataCollection.objects.count()
         model=Medium
         mediumno=Medium.objects.values("mediumname").distinct().count()
         with io.open('honoradar/static/honoradar/mediumsname.json', "r") as json_file:
-            oldjsondata = json.load(json_file)
-            all_db_entries=Medium.objects.values("mediumname").distinct()
-            for entry in all_db_entries:
-                mediumname=(entry["mediumname"])
-                newentry={"name":mediumname.title(),"code":mediumname.title()}
-                oldjsondata.append(newentry)
-            seen = set()
-            new_l = []
-            for d in oldjsondata:
-                t = tuple(d.items())
-                if t not in seen:
-                    seen.add(t)
-                    new_l.append(d)
-            with io.open('tmp/mediumsname_temporary.json', 'w+') as outfile:
-                            data=json.dumps(new_l, ensure_ascii=False)
-                            outfile.write(data)
+             oldjsondata = json.load(json_file)
+             all_db_entries=Medium.objects.values("mediumname").distinct()
+             for entry in all_db_entries:
+                 mediumname=(entry["mediumname"])
+                 newentry={"name":mediumname.title(),"code":mediumname.title()}
+                 oldjsondata.append(newentry)
+                 print(mediumname)
+             seen = set()
+             new_l = []
+             for d in oldjsondata:
+                 t = tuple(d.items())
+                 if t not in seen:
+                     seen.add(t)
+                     new_l.append(d)
+             with io.open('honoradar/static/honoradar/mediumsname_temporary.json', 'w') as outfile:
+                             data=json.dumps(new_l, ensure_ascii=False)
+                             outfile.write(data)
         print("success")
         #print("entriesno:",entriesno,"mediumno:",mediumno)
         context["entriesno"] = entriesno
         context["mediumno"] = mediumno
-        ###
 
-        ###
         return context
