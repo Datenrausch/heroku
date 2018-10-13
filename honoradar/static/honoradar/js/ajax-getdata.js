@@ -549,6 +549,8 @@ $(document).ready(function() {
                 }
 
             }
+            $myForm[0].reset(); // reset form data
+
             //Then we trigger the smoothfunction to scroll down to the graphs
             smoothfunction2()
             };
@@ -581,7 +583,6 @@ $(document).ready(function() {
 
 
 
-        $myForm[0].reset(); // reset form data
 
         //lastly, we iterate through the different comments
 
