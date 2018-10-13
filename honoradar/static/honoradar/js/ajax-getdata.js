@@ -514,7 +514,7 @@ $(document).ready(function() {
                 var loopnumber = (listofcomments).length
 
                 for (i = 0; i < loopnumber; i++) {
-
+                    
                     Commenttext = (listofcomments[i])
                     commentid = "comment-" + String(i + 1)
                     var element = document.getElementById(commentid);
@@ -527,9 +527,10 @@ $(document).ready(function() {
 
                     var elementid = "label-slide-" + String(i + 1)
                     var element = document.getElementById(elementid);
-                    if (element != undefined) {
-                        element.classList.remove("hide");
-                    }
+                    console.log(elementid)
+
+                    element.classList.add("show");
+                    element.classList.remove("hide");
                 };
             } else {
                 for (i = 0; i < 8; i++) {
