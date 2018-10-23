@@ -217,7 +217,7 @@ def createjson(request):
             all_db_entries=Medium.objects.values("mediumname").distinct()
             for entry in all_db_entries:
                  mediumname=(entry["mediumname"])
-                 newentry={"name":mediumname,"code":mediumname.title()}
+                 newentry={"name":mediumname,"code":mediumname}
                  oldjsondata.append(newentry)
                  print(mediumname)
             seen = set()
@@ -227,6 +227,7 @@ def createjson(request):
                 if t not in seen:
                      seen.add(t)
                      new_l.append(d)
+            
             result={}
             result["data"]=new_l
             result["status"] = "Success"
