@@ -1919,6 +1919,9 @@
     "name": "Spiegel",
     "code": "Der Spiegel"
 }, {
+    "name": "Der Spiegel",
+    "code": "Der Spiegel"
+},{
     "name": "Spiegel Online",
     "code": "Spiegel Online"
 }, {
@@ -1946,6 +1949,9 @@
     "name": "ZEIT Online",
     "code": "Zeit Online"
 }, {
+    "name": "Die Zeit Online",
+    "code": "Zeit Online"
+},{
     "name": "ze.tt",
     "code": "ze.tt"
 }, {
