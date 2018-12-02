@@ -227,7 +227,7 @@ def createjson(request):
                 if t not in seen:
                      seen.add(t)
                      new_l.append(d)
-            
+
             result={}
             result["data"]=new_l
             result["status"] = "Success"
@@ -497,7 +497,7 @@ def senddata(request):
                         SalaryPerMonth=SalaryPerHour*160
                         if ((SalaryPerHour>100) or (SalaryPerHour==0)):
                             Suspiciousentry="Weird"
-                        if (CharPerArticleFree is not None):
+                        if (CharPerArticleFree is not None) and (CharPerArticleFree !=0):
                             print("Loop")
                             if float(FeeFree)/float(CharPerArticleFree)>0.15:
                                 Suspiciousentry="Weird"
