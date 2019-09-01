@@ -4,8 +4,6 @@ var newtextStatus = ""
 var newjqXHR = ""
 var redraw=1
 //Checking whether the page is ready to fire-up Ajax etc.
-let promise = new Promise(function(resolve, reject) {
-
 $(document).ready(function() {
 var $url=  "/createjson/"
 console.log(nameJSON)
@@ -22,7 +20,6 @@ console.log("Ajax-try")
 
             });
 
-});
 
     function handleFormSuccessGet(data, textStatus, jqXHR, redraw) {
       console.log(data);
@@ -51,3 +48,6 @@ console.log("Ajax-try")
         }
     }
     window.addEventListener("resize", redraw);
+
+
+})
