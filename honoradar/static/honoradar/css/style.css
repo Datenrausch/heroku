@@ -1897,7 +1897,7 @@ input[type=range]:focus::-ms-fill-upper {
 	position: relative;
 	content: '';
 	display: block;
-	margin: 50px 0px 0px 40px;
+	margin: 20px 0px 0px 40px;
 	color: white;
 	font-family: OpenSans-Regular;
 	font-size: 15px;
@@ -1976,12 +1976,9 @@ input[type=range]:focus::-ms-fill-upper {
 	border: solid 3px #27ae60;
 }
 
-.link-submit {
-	margin: 0px calc(50% - 125px) 0px calc(50% - 125px);	
-}
-
 .submit-download {
 	position: relative;
+	margin: 0px 0px 30px calc(50% - 125px);
 	width: 250px;
 	height: 65px;
 	background: #27ae60;
@@ -3473,14 +3470,6 @@ p a:after{
 p a:after{
 	height:50px;
 	height:2.2rem;
-	width:0;
-	background:#2ecc71;
-	z-index: -1;
-}
-
-p a.quote:after{
-	height:25px;
-	height:1.4rem;
 	width:0;
 	background:#2ecc71;
 	z-index: -1;
