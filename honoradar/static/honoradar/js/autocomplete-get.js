@@ -1,7 +1,7 @@
 function autocomplete_get() {
     var versionUpdate = (new Date()).getTime();
     var options = {
-      data: nameJSON["data"],
+      data: nameJSON["autofilljson"],
 
         getValue: function(element) {
 
