@@ -173,8 +173,7 @@ $(document).ready(function() {
         }
 
         //If it turns out that the backend says, we have no data, we show the error messages
-        if((data["nodata"] != undefined)||(data["drei"] != undefined)) {
-          console.log("nodata-loop")
+        if ((data["nodata"] != undefined)||(data["drei"] != undefined)) {
             var element = document.getElementById("NoDataAtAllMessage")
             if (element != null) {
                 element.parentNode.removeChild(element);
@@ -188,6 +187,7 @@ $(document).ready(function() {
                 element.classList.remove("show");;
             } else {
                 if ((data["nodata"] == "Es gibt keine Daten")||(data["drei"] == "Weniger als drei"))  {
+                    console.log("huch")
                     var element = document.getElementById("WARNING_unknown");
                     element.classList.add("show");
                     element.classList.remove("hide");
@@ -555,13 +555,7 @@ $(document).ready(function() {
             $myForm[0].reset(); // reset form data
 
             //Then we trigger the smoothfunction to scroll down to the graphs
-            smoothfunction2();
-            nameJSON=data["autofilljson"]
-            nameJSON["status"]=data["status"]
-
-            console.log(nameJSON);
-            autocomplete_get();
-            autocomplete_giv();
+            smoothfunction2()
             };
         };
 

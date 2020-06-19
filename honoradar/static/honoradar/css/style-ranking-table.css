@@ -12,8 +12,7 @@ table {
 	font-size: 60%;
 }
 
-#ranking,
-#ranking-2020 {
+#ranking {
 	height: 70vh;
 	min-height: 500px;
 	display: flex;
