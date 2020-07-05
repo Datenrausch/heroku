@@ -178,7 +178,7 @@
   },
         {
             "name": "Die Welt",
-            "zufriedenheit_frei": 6.5,
+            "zufriedenheit_frei": 6.3,
             "geld_text": 26.26,
             "geld_audio": null,
             "geld_video": null,
@@ -187,10 +187,10 @@
         {
             "name": "Die Welt am Sonntag",
             "zufriedenheit_frei": 6,
-            "geld_text": 43.49,
+            "geld_text": 41.32,
             "geld_audio": null,
             "geld_video": null,
-            "amount": 6
+            "amount": 9
   },
         {
             "name": "Die Zeit",
@@ -903,14 +903,6 @@
             "geld_audio": null,
             "geld_video": null,
             "amount": 8
-  },
-        {
-            "name": "Welt am Sonntag",
-            "zufriedenheit_frei": 6.3,
-            "geld_text": 41.67,
-            "geld_audio": null,
-            "geld_video": null,
-            "amount": 3
   },
         {
             "name": "welt-sichten",

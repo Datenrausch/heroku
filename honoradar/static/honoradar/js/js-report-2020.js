@@ -1444,7 +1444,7 @@ Highcharts.chart('zufriedenheitvslohn', {
                 },
         {
             name: "Die Welt am Sonntag (Freiberufler)",
-            data: [[6, 25.22]],
+            data: [[6.3, 29.16]],
             showInLegend: false,
             marker: {
                 states: {
@@ -2609,18 +2609,6 @@ Highcharts.chart('zufriedenheitvslohn', {
         {
             name: "WDR 5 (Freiberufler)",
             data: [[7.8, 56.03]],
-            showInLegend: false,
-            marker: {
-                states: {
-                    hover: {
-                        fillColor: '#2ecc71'
-                    }
-                }
-            }
-                },
-        {
-            name: "Welt am Sonntag (Freiberufler)",
-            data: [[6.3, 33.09]],
             showInLegend: false,
             marker: {
                 states: {
